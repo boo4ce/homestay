@@ -20,18 +20,18 @@ public class EmployeeLogin {
             
             ResultSet rs;
             rs = stm.executeQuery("SELECT * FROM Account" + " WHERE " 
-                            + "AccountID='" + AccountID + "'"
+                            + "AccountId='" + AccountID + "'"
                             + " AND Password='" + Password + "';");
                                         // j'or'1'='1
             if(rs.next()) res = true;
             
             if(res == true) {
-                return rs.getShort("EmployeeID");
+                return rs.getShort("EmployeeId");
             } 
         } catch(SQLException ex) {
             System.out.println(ex);
         }
         
-        return -1;
+        return -2;
     } 
 }

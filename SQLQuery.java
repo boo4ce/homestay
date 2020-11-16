@@ -27,6 +27,7 @@ public class SQLQuery {
         }       
     }
     
+    // lenh dung de them phan tu
     public void insertExecute(String command) {
         try {
             this.stm.executeUpdate(command);
@@ -35,10 +36,11 @@ public class SQLQuery {
         }
     }
      
-    public List<Object[]> queryExecute(String command, Table.tableName name) {
+    // lenh dung de truy van
+    public List<Object[]> queryExecute(String command, int n) {
         List<Object[]> result = new ArrayList<>();
-        int n = Table.getWidth(name);
         
+//        System.out.println(command);
         try {
             ResultSet rs = this.stm.executeQuery(command);
             
@@ -46,7 +48,7 @@ public class SQLQuery {
                 Object[] temp = new Object[20];
                 for(int i = 1; i <= n; i++) {
                     if(rs.getObject(i) != null) temp[i-1] = rs.getObject(i);
-                    else temp[i-1] = (short) 0;
+                    else temp[i-1] = new entity.Empty();
                     
                 }
                 result.add(temp);
@@ -58,6 +60,15 @@ public class SQLQuery {
 //        System.out.println(result.get(0)[0] + " " + result.get(1)[0]);
         
         return result;
+    }
+    
+    public void reconnect() {
+        this.conn = DatabaseConnection.getConnection();
+        try {
+            this.stm = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLQuery.class.getName()).log(Level.SEVERE, null, ex);
+        }     
     }
     
     public void close() {
