@@ -162,7 +162,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         short employeeID;
-        if((employeeID = Login.login(accTxt.getText(), this.toString(passTxt.getPassword()))) != -1) {
+        if((employeeID = Login.login(accTxt.getText(), this.toString(passTxt.getPassword()))) != -2) {
             EmployeeFrame ef = new EmployeeFrame();
             ef.run(employeeID);
             this.dispose();
