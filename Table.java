@@ -17,7 +17,7 @@ public class Table {
             case EMPLOYEE -> 6;
             case CUSTOMER -> 5;
             case DEAL -> 5;
-            case ROOM -> 4;
+            case ROOM -> 6;
             case BILL -> 5;
             case ACCOUNT -> 3;
             case VOUCHER -> 3;
