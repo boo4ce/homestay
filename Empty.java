@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package entity;
 
 /**
  *
- * @author nguye
+ * @author acer
  */
-public class Login {
-    public static short login(String account, String password) {
-        return model.EmployeeLogin.login(account, password);      
-    }
+public class Empty {
+           
 }
